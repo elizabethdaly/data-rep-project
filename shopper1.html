@@ -1,0 +1,130 @@
+<!-- 52957 Data representation -->
+<!-- Big project 2019 -->
+<!-- shopperx.html-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping</title>
+        <!--Include BootstrapCSS only, spreads content more across width of page-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <!-- Add an image, maybe more/position? -->
+        <img src="images/istock_trolley.jpg" alt="Trolley in a supermarket" style="width:300px;height:155px;">
+
+        <h1>Foods</h1>
+        <!--the Foods section-->
+        <div>
+        <!--give Create button id-->
+        <button id="showCreateButton" onclick="showCreate()">Create</button>
+        </div>
+
+        <h1>All Foods</h1>
+        <!--List all the foods - will load from server later-->
+        <div>
+            <table class="table" id="foodTable">
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <tr>
+                    <tr id ="1"> <!--give each tr an id-->
+                        <td>1</td>
+                        <td>cheese</td>
+                        <td>Dairy</td>
+                        <td>2.50</td>
+                        <td><button onclick="showUpdate(this)">update</button></td>
+                        <td><button onclick="doDelete(this)">delete</button></td>
+                </tr>
+                <tr>
+                    <tr id ="2"> <!--give each tr an id-->
+                        <td>2</td>
+                        <td>carrots</td>
+                        <td>Vegetable</td>
+                        <td>1.10</td>
+                        <td><button onclick="showUpdate(this)">update</button></td>
+                        <td><button onclick="doDelete(this)">delete</button></td>
+                </tr>
+                <tr>
+                    <tr id ="3"> <!--give each tr an id-->
+                        <td>3</td>
+                        <td>milk</td>
+                        <td>Dairy</td>
+                        <td>1.97</td>
+                        <td><button onclick="showUpdate(this)">update</button></td>
+                        <td><button onclick="doDelete(this)">delete</button></td>
+                </tr>
+
+            </table>
+        </div>
+<!--
+        <h1><span style="color: blue">Create </span> or <span style="color: red">Update </span> a food item</h1> -->
+        <!--The Update & Create section-->
+        
+        <!--hide the form-->
+        <div id="createUpdateForm"> <!-- style="display:none"-->
+            <h2><span id="createLabel" style="color: blue">Create a</span> <span id="updateLabel"style="color: red">Update</span> Food</h2>
+
+            ID <input type="text" name="id"/> <br/>
+            Category <select name="Category">
+                <option value="Dairy">Dairy</option>
+                <option value="Vegetable">Vegetables</option>
+                <option value="Meat">Meat</option>
+                <option value="Canned">Canned</option>
+                </select><br/>
+            Name<input type="text" name="name"/> <br/>
+            Price <input type="number" name="price"/> <br/>
+            <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
+            <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
+
+        </div>
+
+        <!-- JavaScript-->
+        <script>
+
+            function showCreate(){
+                // When creating a new food:
+                // Hide showCreateButton & foodTable, show createUpdateForm
+                document.getElementById('showCreateButton').style.display="none"
+                document.getElementById('foodTable').style.display="none"
+                document.getElementById('createUpdateForm').style.display="block"
+
+                // Show createLabel above form, hide updateLabel
+                document.getElementById('createLabel').style.display="inline"
+                document.getElementById('updateLabel').style.display="none"
+
+                // Show doCreateButton under form, hide doUpdateButton
+                document.getElementById('doCreateButton').style.display="block"
+                document.getElementById('doUpdateButton').style.display="none"
+            }
+
+            function doCreate(){
+                console.log("inside doCreate in form")
+            }
+
+            function doUpdate(){
+                console.log("inside doUpdate in form")
+            }
+
+            function showUpdate(buttonElement){
+                console.log("update button in table has been clicked")
+            }
+        
+            function doDelete(r){
+                console.log("delete button in table has been clicked")
+
+            }
+            
+        </script>
+
+    </body>
+
+</html>
