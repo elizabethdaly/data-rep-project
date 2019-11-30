@@ -85,6 +85,39 @@ def create():
 
 ##################################################################
 
+# Action = Update foor by ID
+
+@app.route('/foods/<int:id>', methods=['PUT'])
+def update(id):
+    #return "in update by ID for id "+ str(id)
+
+    foundFoods = list(filter(lambda f: f['id'] == id, foods))
+    if (len(foundFoods) == 0):
+        abort(404)
+    foundFood = foundFoods[0]
+
+    if not request.json:
+        abort(400)
+
+    # Get what was passed up
+    reqJson = request.json
+
+    # Error checking - price a float - do later
+    #if ('price' in reqJson and type(reqJson['price']) is not int):
+    #    abort(400)
+
+    # curl -i -H "Content-Type:application/json" -X PUT -d "{\"price\":4.80}" "http://127.0.0.1:5000/foods/3"
+    # Info to update    
+    if 'category' in reqJson:
+        foundFood['category'] = reqJson['category']
+    if 'name' in reqJson: 
+        foundFood['name'] = reqJson['name']
+    if 'price' in reqJson:
+        foundFood['price'] = reqJson['price']
+
+    return jsonify(foundFood)
+
+
 # Action = Delete by ID
 # curl -X DELETE "http://127.0.0.1:5000/foods/1"
 @app.route('/foods/<int:id>', methods=['DELETE'])
