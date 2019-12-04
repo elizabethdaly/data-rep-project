@@ -8,6 +8,7 @@ from flask import Flask, jsonify, request, abort
 
 #https://stackoverflow.com/questions/1960516/python-json-serialize-a-decimal-object/39257479
 # Price is a decimal in the DB
+# pip install simplejson
 from decimal import Decimal
 
 # For interaction with food DB
@@ -17,17 +18,13 @@ app = Flask(__name__, static_url_path='', static_folder='.')
 
 ##################################################################
 # List of foods (or a DB)
-# Price is a float .xx
+# Price is a decimal(6,2) xxxx.xx in dDB
 """ foods=[
     {"id": 1, "category": "dairy", "name":"cheese", "price": 2.50},
     {"id": 2, "category": "vegetable","name":"carrots", "price:": 1.10},
     {"id": 3, "category": "meat","name":"steak", "price:": 6.75},
     {"id": 4, "category": "canned","name":"peas", "price:": 1.25}   
 ] """
-
-# Keep track of ID as need to increment for new food
-# This is a global var
-# nextId = 5
 
 ##################################################################
 # Maybe have another array for second DB like a cart?
@@ -63,10 +60,14 @@ def getAll():
 def findByID(id):
     #return "in find by ID for id "+ str(id)
 
-    # Could check if id exists.
-
     # Return food from DB by requested id
     foundFood = foodDAO.findByID(id)
+
+    # Check if id exists
+    if not foundFood:
+        return "That id does not exist in the database table"
+        abort(404)
+    
     return jsonify(foundFood)
 
 ##################################################################
@@ -77,7 +78,6 @@ def findByID(id):
 
 @app.route('/foods', methods=['POST'])
 def create():
-    #global nextId # To allow edits inside this function
     #return "in create"
 
     if not request.json:
@@ -90,9 +90,6 @@ def create():
         "Name": request.json['Name'],
         "Price": request.json['Price'] 
     }
-    
-    #nextId += 1
-    #foods.append(food)
 
     # Make the tuple for DB
     values = (food['Category'], food['Name'], food['Price'])
@@ -105,15 +102,18 @@ def create():
 # update(id)
 #
 # Action = Update food in DB by ID
+# curl -i -H "Content-Type:application/json" -X PUT -d "{\"Price\":44.44}" "http://127.0.0.1:5000/foods/3"
 
 @app.route('/foods/<int:id>', methods=['PUT'])
 def update(id):
     #return "in update by ID for id "+ str(id)
 
-    foundFoods = list(filter(lambda f: f['id'] == id, foods))
-    if (len(foundFoods) == 0):
+    # Find the food in DB table
+    foundFood = foodDAO.findByID(id)
+
+    if not foundFood:
+        return "That id does not exist in the database table"
         abort(404)
-    foundFood = foundFoods[0]
 
     if not request.json:
         abort(400)
@@ -122,18 +122,21 @@ def update(id):
     reqJson = request.json
 
     # Error checking - price a decimal - do later
-    #if ('price' in reqJson and type(reqJson['price']) is not int):
+    #if ('Price' in reqJson and type(reqJson['Price']) is not int):
     #    abort(400)
 
-    # curl -i -H "Content-Type:application/json" -X PUT -d "{\"price\":4.80}" "http://127.0.0.1:5000/foods/3"
     # Info to update    
-    if 'category' in reqJson:
-        foundFood['category'] = reqJson['category']
-    if 'name' in reqJson: 
-        foundFood['name'] = reqJson['name']
-    if 'price' in reqJson:
-        foundFood['price'] = reqJson['price']
+    if 'Category' in reqJson:
+        foundFood['Category'] = reqJson['Category']
+    if 'Name' in reqJson: 
+        foundFood['Name'] = reqJson['Name']
+    if 'Price' in reqJson:
+        foundFood['Price'] = reqJson['Price']
 
+    # Make the tuple for DB
+    values = (foundFood['Category'], foundFood['Name'], foundFood['Price'], foundFood['id'])
+    # Do the update on DB
+    foodDAO.update(values)
     return jsonify(foundFood)
 
 ##################################################################
