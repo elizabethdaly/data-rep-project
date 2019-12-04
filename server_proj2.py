@@ -1,6 +1,6 @@
 # Server for the project
-# server_proj1.py
-# basic server, no DB or web interface yet.
+# server_proj2.py
+# basic server with DB, no web interface yet.
 
 #!flask/bin/python
 from flask import Flask, jsonify, request, abort
