@@ -1,3 +1,6 @@
+## WEB PAGE
+1. shopper1.html
+
 ## SERVERS
 List of servers:
 1. server_proj1.py basic, no DB or web page
@@ -7,9 +10,12 @@ List of servers:
 1. zfoodDAO.py contains foodDAO class
 
 ## SQL Databases & tables
-1. datarepresentation with table food
+
+1. DB = datarepresentation
+table = food
 
 MySQL command to create food table:
+
 create table food (
     id int NOT NULL auto_increment,
     category ENUM('dairy', 'vegetable', 'meat', 'canned'),
