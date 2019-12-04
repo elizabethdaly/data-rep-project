@@ -72,7 +72,7 @@ def findByID(id):
 ##################################################################
 # create()
 #
-# Action = Create a new food
+# Action = Create a new food in the DB
 # curl -i -H "Content-Type:application/json" -X POST -d "{\"Category\": \"vegetable\", \"Name\":\"onion\", \"Price\": 0.50 }" "http://127.0.0.1:5000/foods"
 
 @app.route('/foods', methods=['POST'])
