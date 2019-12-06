@@ -3,7 +3,7 @@
 DB = datarepresentation, table = food
 
 MySQL command to create food table:
-
+```SQL
 create table food (
     id int NOT NULL auto_increment,
     category ENUM('dairy', 'vegetable', 'meat', 'canned'),
@@ -11,7 +11,7 @@ create table food (
     price DECIMAL(6,2) NOT NULL,
     PRIMARY KEY(id)
     );
-
+```
 mysql> desc food;
 
 | Field    | Type                                      | Null | Key | Default | Extra          |
@@ -22,7 +22,7 @@ mysql> desc food;
 | price    | decimal(6,2)                              | NO   |     | NULL    |                |
 
 ## WEB PAGE
-1. shopper1.html
+- shopper1.html
 
 ## SERVERS
 
@@ -37,9 +37,9 @@ mysql> desc food;
 
 
 ## DAO
-1. zfoodDAO.py contains foodDAO class
+- zfoodDAO.py contains foodDAO class
 
-## Final version:
+## Current working version:
 - shopper1.html
 - server_proj2.py
 - zfoodDAO.py
