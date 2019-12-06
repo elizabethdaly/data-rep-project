@@ -11,7 +11,7 @@ from flask import Flask, jsonify, request, abort
 # pip install simplejson
 from decimal import Decimal
 
-# For interaction with food DB
+# For interaction with food table in DB=datarepresentation
 from zfoodDAO import foodDAO
 
 app = Flask(__name__, static_url_path='', static_folder='.')
