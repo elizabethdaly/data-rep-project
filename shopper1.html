@@ -50,15 +50,16 @@
         <div id='createUpdateForm' style="display:none">
             <h2><span id="createLabel" style="color: blue">Create a</span> <span id="updateLabel"style="color: red">Update</span> Food</h2>
 
-            ID <input type="text" name="id"/> <br/> <!-- hide later: <input type="hidden" name="id"/> -->
+            <!--ID <input type="text" name="id"/> <br/> -->
+            <input type="hidden" name="id"/>
             Category <select name="Category">
-                <option value="Dairy">Dairy</option>
-                <option value="Vegetable">Vegetables</option>
-                <option value="Meat">Meat</option>
-                <option value="Canned">Canned</option>
+                <option value="dairy">dairy</option>
+                <option value="degetable">vegetable</option>
+                <option value="deat">meat</option>
+                <option value="danned">canned</option>
                 </select><br/>
-            Name<input type="text" name="name"/> <br/>
-            Price <input type="number" name="price"/> <br/>
+            Name<input type="text" name="Name"/> <br/>
+            Price <input type="number" name="Price"/> <br/>
             <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
             <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
 
@@ -111,13 +112,13 @@
             
             // id created by DB
             food.Category = form.querySelector('select[name="Category"]').value
-            food.Name = form.querySelector('input[name="Name"]').value
+            food.Name = form.querySelector('input[name="Name"]').value 
             food.Price = form.querySelector('input[name="Price"]').value
             console.log(JSON.stringify(food))
 
             // ajax POST to server here.
             ////////////////////////////////////////////////////////////////
-            //createFoodAjax(food)
+            createFoodAjax(food)
         }
 
         function doUpdate(){
@@ -130,7 +131,7 @@
             ////////////////////////////////////////////////////////////////
             console.log("updateFood on server now - ajax PUT next line")
             console.log(JSON.stringify(food));
-            //AJupdateFood(food);
+            updateFoodAjax(food);
                 
             setFoodInRow(rowElement, food); //table is being updated
             clearForm()
@@ -243,7 +244,52 @@
             });
         }
         
+        /////////////////////////////////////////////////////////////////////////
         getAllAjax(); // Fill table with data from DB
+
+        /////////////////////////////////////////////////////////////////////////
+        function createFoodAjax(food){
+            console.log(JSON.stringify(food));
+            $.ajax({
+                "url": "http://127.0.0.1:5000/foods",
+                "method":"POST",
+                "data":JSON.stringify(food),
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    food.id = result.id
+
+                    // Update web page after DB
+                    addFoodToTable(food)
+                    clearForm()
+                    showViewAll()
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+        }
+
+        /////////////////////////////////////////////////////////////////////////
+        function updateFoodAjax(food){
+            console.log(JSON.stringify(food));
+            $.ajax({
+                "url": "http://127.0.0.1:5000/foods/"+encodeURI(food.id),
+                "method":"PUT",
+                "data":JSON.stringify(food),
+                "dataType": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    // console.log(result);
+                  
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+        }
+
         </script>
 
     </body>
