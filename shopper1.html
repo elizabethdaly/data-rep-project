@@ -112,7 +112,8 @@
             
             // id created by DB
             food.Category = form.querySelector('select[name="Category"]').value
-            food.Name = form.querySelector('input[name="Name"]').value 
+            food.Name = form.querySelector('input[name="Name"]').value
+
             food.Price = form.querySelector('input[name="Price"]').value
             console.log(JSON.stringify(food))
 
@@ -162,7 +163,7 @@
             var cell3 = rowElement.insertCell(2);
             cell3.innerHTML = food.Name
             var cell4 = rowElement.insertCell(3);
-            cell4.innerHTML = food.Price
+            cell4.innerHTML = parseFloat(food.Price).toFixed(2) // Want table to display price to two decimal places.
             var cell5 = rowElement.insertCell(4);
             cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
             var cell6 = rowElement.insertCell(5);
@@ -195,7 +196,7 @@
             rowElement.cells[0].firstChild.textContent= food.id
             rowElement.cells[1].firstChild.textContent= food.Category
             rowElement.cells[2].firstChild.textContent= food.Name
-            rowElement.cells[3].firstChild.textContent= food.Price
+            rowElement.cells[3].firstChild.textContent= parseFloat(food.Price).toFixed(2)
         }
 
         function populateFormWithFood(food){
@@ -223,8 +224,9 @@
             
             // parseFloat(string)
             // My price is a decimal(6.2) now as defined in DB.
+            //.toFixed(2)
             
-            food.Price = parseFloat(form.querySelector('input[name="Price"]').value)
+            food.Price = parseFloat(form.querySelector('input[name="Price"]').value).toFixed(2)
             console.log(JSON.stringify(food))
             return food
         }  
