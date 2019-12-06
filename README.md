@@ -24,7 +24,13 @@ desc food;
 | price    | decimal(6,2)                              | NO   |     | NULL    |                |
 
 ## WEB PAGE
-- shopper1.html
+
+**shopper1.html**
+
+- Price displayed as two decimal places on initial read from DB and after create & update.
+```javascript
+parseFloat(food.Price).toFixed(2)
+```
 
 ## SERVERS
 
@@ -35,9 +41,10 @@ desc food;
 **server_proj2.py**
 
 - basic + DB + webpage
-- Price displayed as two decimal places on initial read from DB and after create & update.
-
-
+- Allow for decimal type in DB
+```python
+from decimal import Decimal
+```
 ## DAO
 - zfoodDAO.py contains foodDAO class
 
@@ -49,3 +56,4 @@ desc food;
 ## References/code help
 1. https://stackoverflow.com/questions/30247108/round-all-decimals-from-dynamic-json-to-2-decimal-places
 (Accessed 6 Dec 2019)
+2. https://stackoverflow.com/questions/1960516/python-json-serialize-a-decimal-object/39257479 (Accessed 4 Dec 2019)
