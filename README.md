@@ -12,7 +12,9 @@ create table food (
     PRIMARY KEY(id)
     );
 ```
-mysql> desc food;
+```SQL
+desc food;
+```
 
 | Field    | Type                                      | Null | Key | Default | Extra          |
 |:---------|:------------------------------------------|:-----|:----|:--------|:---------------|
