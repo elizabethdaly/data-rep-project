@@ -1,6 +1,7 @@
 ## MySQL Databases & tables
 
-DB = datarepresentation, table = food
+Database = datarepresentation  
+Table = food
 
 MySQL command to create food table:
 ```SQL
@@ -23,6 +24,18 @@ desc food;
 | name     | varchar(250)                              | YES  |     | NULL    |                |
 | price    | decimal(6,2)                              | NO   |     | NULL    |                |
 
+MySQL commands to add some records to food table:
+```SQL
+insert into food (category, name, price) values ("meat", "pork", 4.50);
+```
+```SQL
+insert into food (category, name, price) values ("dairy", "milk", 2.99);
+```
+```SQL
+insert into food (category, name, price) values ("canned", "beans", 0.99);
+```
+
+
 ## WEB PAGE
 
 **shopper1.html**
@@ -31,6 +44,10 @@ desc food;
 ```javascript
 parseFloat(food.Price).toFixed(2)
 ```
+
+**shopper2.html**
+
+- Try to make web page a bit nicer.
 
 ## SERVERS
 

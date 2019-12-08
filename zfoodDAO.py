@@ -1,5 +1,5 @@
-# For interaction with food table in DB=datarepresentation
-# Modify zstudentDAO -> foodDAO
+# For interaction with Table = food in Database = datarepresentation
+# Modify zstudentDAO -> zfoodDAO
 #
 # pip install mysql-connector-python
 # NOT

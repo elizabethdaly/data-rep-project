@@ -11,7 +11,7 @@ from flask import Flask, jsonify, request, abort
 # pip install simplejson
 from decimal import Decimal
 
-# For interaction with food table in DB=datarepresentation
+# For interaction with MySQL Table = food in Database = datarepresentation
 from zfoodDAO import foodDAO
 
 app = Flask(__name__, static_url_path='', static_folder='.')
@@ -27,7 +27,7 @@ app = Flask(__name__, static_url_path='', static_folder='.')
 ] """
 
 ##################################################################
-# Maybe have another array for second DB like a cart?
+# Maybe have another array for second table like a cart?
 cart=[
     {"id": 1, "name":"chedder", "amount": 2},
     {"id": 2, "name":"carrots", "amount:": 0},

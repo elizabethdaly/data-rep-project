@@ -4,6 +4,9 @@
 
 <!DOCTYPE html>
 <html>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <head>
         <title>Shopping</title>
 
@@ -18,20 +21,23 @@
 
     <body>
 
+        <h1>Foods</h1>
+        <!--the Foods section-->
         <!-- Add an image, maybe more/position? -->
         <img src="images/istock_trolley.jpg" alt="Trolley in a supermarket" style="width:300px;height:155px;">
 
-        <h1>Foods</h1>
-        <!--the Foods section-->
         <div>
         <!--give Create button id-->
-        <button id="showCreateButton" onclick="showCreate()">Create</button>
+        
+        <!--<button id="showCreateButton" class="btn btn-default" onclick="showCreate()">Create</button>-->
+        <button id="showCreateButton" type="button" class="btn btn-primary btn-lg" onclick="showCreate()">Create</button>
         </div>
 
-        <h1>All Foods</h1>
+        
 <!--List all the foods - will load from server/DB later-->
-        <div>
-            <table class="table" id="foodTable">
+        <div> <!--class="table-responsive"-->
+            <table class="table table" id="foodTable">
+                <h2><span id="tableTitle">All Foods</span></h2>
                 <tr>
                     <th>id</th>  <!-- maybe don't display id? -->
                     <th>Category</th>
@@ -48,7 +54,7 @@
         
         <!--hide the form-->
         <div id='createUpdateForm' style="display:none">
-            <h2><span id="createLabel" style="color: blue">Create a</span> <span id="updateLabel"style="color: red">Update</span> Food</h2>
+            <h2><span id="createLabel" style="color: blue">Create</span> <span id="updateLabel"style="color: green">Update</span> Food</h2>
 
             <!--ID <input type="text" name="id"/> <br/> -->
             <input type="hidden" name="id"/>
@@ -60,8 +66,8 @@
                 </select><br/>
             Name<input type="text" name="Name"/> <br/>
             Price <input type="number" name="Price"/> <br/>
-            <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
-            <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
+            <span><button id="doCreateButton" type="button" class="btn btn-primary" onclick="doCreate()">Create</button></span>
+            <span><button id="doUpdateButton" type="button" class="btn btn-success" onclick="doUpdate()">Update</button></span>
 
         </div>
 
@@ -70,10 +76,11 @@
 
         function showCreate(){
             // When creating a new food:
-            // Hide showCreateButton & foodTable, show createUpdateForm
+            // Hide showCreateButton & foodTable & tableTitle, show createUpdateForm
             document.getElementById('showCreateButton').style.display="none"
             document.getElementById('foodTable').style.display="none"
             document.getElementById('createUpdateForm').style.display="block"
+            document.getElementById('tableTitle').style.display="none"
 
             // Show createLabel above form, hide updateLabel
             document.getElementById('createLabel').style.display="inline"
@@ -91,6 +98,7 @@
         }
 
         function showUpdate(buttonElement){
+            document.getElementById('tableTitle').style.display="none"
             document.getElementById('showCreateButton').style.display="none"
             document.getElementById('foodTable').style.display="none"
             document.getElementById('createUpdateForm').style.display="block"
@@ -165,9 +173,9 @@
             var cell4 = rowElement.insertCell(3);
             cell4.innerHTML = parseFloat(food.Price).toFixed(2) // Want table to display price to two decimal places.
             var cell5 = rowElement.insertCell(4);
-            cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+            cell5.innerHTML = '<button type="button" class="btn btn-success" onclick="showUpdate(this)">Update</button>'
             var cell6 = rowElement.insertCell(5);
-            cell6.innerHTML = '<button onclick=doDelete(this)>Delete</button>'
+            cell6.innerHTML = '<button  type="button" class="btn btn-danger"onclick=doDelete(this)>Delete</button>'
         }
 
         function clearForm(){
