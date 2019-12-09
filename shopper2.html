@@ -52,6 +52,29 @@
 
 <!--The Update & Create section-->
         
+        <!-- fancier form -->
+        <form>
+            <div class="form-group">
+                <input type="hidden" name="id"/>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Category</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Category">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Name</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Price</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Price">
+                <p class="help-block">Please enter attributes of new item.</p>
+            </div>
+            <button id="doCreateButton" type="button" class="btn btn-primary" onclick="doCreate()">Create</button>
+            <button id="doUpdateButton" type="button" class="btn btn-success" onclick="doUpdate()">Update</button>
+          </form>
+          <!-- fancier form -->
+
         <!--hide the form-->
         <div id='createUpdateForm' style="display:none">
             <h2><span id="createLabel" style="color: blue">Create</span> <span id="updateLabel"style="color: green">Update</span> Food</h2>
@@ -68,7 +91,6 @@
             Price <input type="number" name="Price"/> <br/>
             <span><button id="doCreateButton" type="button" class="btn btn-primary" onclick="doCreate()">Create</button></span>
             <span><button id="doUpdateButton" type="button" class="btn btn-success" onclick="doUpdate()">Update</button></span>
-
         </div>
 
         <!-- JavaScript goes here -->
