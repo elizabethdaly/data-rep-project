@@ -52,34 +52,48 @@
 
 <!--The Update & Create section-->
         
-        <!-- fancier form -->
+        <!-- fancier Bootstrap form -->
         <form>
+            <!-- Hide the form initially -->
+            <div id='createUpdateForm' style="display:none">
+            <h2><span id="createLabel" style="color: blue">Create</span> <span id="updateLabel"style="color: green">Update</span> Food</h2>
+            <!-- id field is hidden -->
             <div class="form-group">
                 <input type="hidden" name="id"/>
             </div>
+            <!-- Category part of form -->
             <div class="form-group">
-              <label for="exampleInputEmail1">Category</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Category">
+              <label for="formInputCategory">Category</label>
+              <select type="text" class="form-control" id="formInputCategory" placeholder="Category">
+                    <option value="dairy">dairy</option>
+                    <option value="vegetable">vegetable</option>
+                    <option value="meat">meat</option>
+                    <option value="canned">canned</option>
+                    </select><br/>
             </div>
+            <!-- Name part of form -->
             <div class="form-group">
-              <label for="exampleInputPassword1">Name</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Name">
+              <label for="formInputName">Name</label>
+              <input type="text" class="form-control" id="formInputName" placeholder="Name">
             </div>
+            <!-- Price part of form -->
             <div class="form-group">
-                <label for="exampleInputPassword1">Price</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Price">
+                <label for="formInputPrice">Price</label>
+                <input type="number" class="form-control" id="formInputPrice" placeholder="Price">
                 <p class="help-block">Please enter attributes of new item.</p>
             </div>
+            <!-- Create and update buttons -->
             <button id="doCreateButton" type="button" class="btn btn-primary" onclick="doCreate()">Create</button>
             <button id="doUpdateButton" type="button" class="btn btn-success" onclick="doUpdate()">Update</button>
+            </div>
           </form>
           <!-- fancier form -->
 
-        <!--hide the form-->
+        <!-- The old form below-->
+        <!--
         <div id='createUpdateForm' style="display:none">
             <h2><span id="createLabel" style="color: blue">Create</span> <span id="updateLabel"style="color: green">Update</span> Food</h2>
 
-            <!--ID <input type="text" name="id"/> <br/> -->
             <input type="hidden" name="id"/>
             Category <select name="Category">
                 <option value="dairy">dairy</option>
@@ -92,6 +106,8 @@
             <span><button id="doCreateButton" type="button" class="btn btn-primary" onclick="doCreate()">Create</button></span>
             <span><button id="doUpdateButton" type="button" class="btn btn-success" onclick="doUpdate()">Update</button></span>
         </div>
+        -->
+        <!--The old form above -->
 
         <!-- JavaScript goes here -->
         <script>
@@ -141,10 +157,14 @@
             var food = {}
             
             // id created by DB
-            food.Category = form.querySelector('select[name="Category"]').value
-            food.Name = form.querySelector('input[name="Name"]').value
+            food.Category = form.querySelector('select[placeholder="Category"]').value
+            //food.Category = form.querySelector('select[name="Category"]').value
+            food.Name = form.querySelector('input[placeholder="Name"]').value
+            //food.Name = form.querySelector('input[name="Name"]').value
 
-            food.Price = form.querySelector('input[name="Price"]').value
+            food.Price = form.querySelector('input[placeholder="Price"]').value
+            //food.Price = form.querySelector('input[name="Price"]').value
+
             console.log(JSON.stringify(food))
 
             // ajax POST to server here.
@@ -202,9 +222,12 @@
 
         function clearForm(){
             var form = document.getElementById('createUpdateForm')
-            form.querySelector('select[name="Category"]').value=''
-            form.querySelector('input[name="Name"]').value=''
-            form.querySelector('input[name="Price"]').value=''
+            form.querySelector('select[placeholder="Category"]').value=''
+            form.querySelector('input[placeholder="Name"]').value=''
+            form.querySelector('input[placeholder="Price"]').value=''
+            //form.querySelector('select[name="Category"]').value=''
+            //form.querySelector('input[name="Name"]').value=''
+            //form.querySelector('input[name="Price"]').value=''
         }
 
         function getFoodFromRow(rowElement){
@@ -233,11 +256,14 @@
             var form = document.getElementById('createUpdateForm')
             
             form.querySelector('input[name="id"]').disabled = true
-
             form.querySelector('input[name="id"]').value = food.id
-            form.querySelector('select[name="Category"]').value = food.Category
-            form.querySelector('input[name="Name"]').value = food.Name
-            form.querySelector('input[name="Price"]').value = food.Price
+
+            form.querySelector('select[placeholder="Category"]').value = food.Category
+            form.querySelector('input[placeholder="Name"]').value = food.Name
+            form.querySelector('input[placeholder="Price"]').value = food.Price
+            //form.querySelector('select[name="Category"]').value = food.Category
+            //form.querySelector('input[name="Name"]').value = food.Name
+            //form.querySelector('input[name="Price"]').value = food.Price
         }
 
         function getFoodFromForm(){
@@ -246,8 +272,11 @@
             var form = document.getElementById('createUpdateForm')
             var food = {}
             food.id = form.querySelector('input[name="id"]').value
-            food.Category = form.querySelector('select[name="Category"]').value
-            food.Name = form.querySelector('input[name="Name"]').value
+            food.Category = form.querySelector('select[placeholder="Category"]').value
+            food.Name = form.querySelector('input[placeholder="Name"]').value
+            
+            //food.Category = form.querySelector('select[name="Category"]').value
+            //food.Name = form.querySelector('input[name="Name"]').value
             
             // parseInt(string, radix)
             //food.Price = parseInt(form.querySelector('input[name="Price"]').value,10)
@@ -256,7 +285,8 @@
             // My price is a decimal(6.2) now as defined in DB.
             //.toFixed(2)
             
-            food.Price = parseFloat(form.querySelector('input[name="Price"]').value).toFixed(2)
+            food.Price = parseFloat(form.querySelector('input[placeholder="Price"]').value).toFixed(2)
+            //food.Price = parseFloat(form.querySelector('input[name="Price"]').value).toFixed(2)
             console.log(JSON.stringify(food))
             return food
         }  
