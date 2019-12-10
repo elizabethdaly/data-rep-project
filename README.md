@@ -47,7 +47,7 @@ parseFloat(food.Price).toFixed(2)
 
 **shopper2.html**
 
-- Try to make web page a bit nicer.
+- Try to make web page a bit nicer with CSS Bootstrap: buttons, form
 
 ## SERVERS
 
@@ -66,7 +66,7 @@ from decimal import Decimal
 - zfoodDAO.py contains foodDAO class
 
 ## Current working version:
-- shopper1.html
+- shopper2.html
 - server_proj2.py
 - zfoodDAO.py
 
@@ -74,3 +74,4 @@ from decimal import Decimal
 1. https://stackoverflow.com/questions/30247108/round-all-decimals-from-dynamic-json-to-2-decimal-places
 (Accessed 6 Dec 2019)
 2. https://stackoverflow.com/questions/1960516/python-json-serialize-a-decimal-object/39257479 (Accessed 4 Dec 2019)
+3. [Bootstrap](https://getbootstrap.com/docs/3.4/)
