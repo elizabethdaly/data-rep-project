@@ -53,6 +53,10 @@ parseFloat(food.Price).toFixed(2)
 
 - Try to make layout a bit nicer
 
+**shopper4.html**
+
+- add host code to ajax calls
+
 ## SERVERS
 
 **server_proj1.py**
