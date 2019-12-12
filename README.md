@@ -49,6 +49,10 @@ parseFloat(food.Price).toFixed(2)
 
 - Try to make web page a bit nicer with CSS Bootstrap: buttons, form
 
+**shopper3.html**
+
+- Try to make layout a bit nicer
+
 ## SERVERS
 
 **server_proj1.py**
@@ -66,7 +70,7 @@ from decimal import Decimal
 - zfoodDAO.py contains foodDAO class
 
 ## Current working version:
-- shopper2.html
+- shopper3.html
 - server_proj2.py
 - zfoodDAO.py
 
