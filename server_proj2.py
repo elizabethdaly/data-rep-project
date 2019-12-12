@@ -49,6 +49,7 @@ def getAll():
     # Connect to food table in datarepresentation DB!
     results = foodDAO.getAll()
     return jsonify(results)
+    #return results
 
 ##################################################################
 # findByID(id)

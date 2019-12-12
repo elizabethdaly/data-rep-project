@@ -7,15 +7,21 @@
 # https://stackoverflow.com/questions/34168651/what-are-the-differences-between-mysql-connector-python-mysql-connector-python
 
 import mysql.connector
+import dbconfig as cfg
+
 # Change class name here
 class FoodDAO:
     db = ""
     def __init__(self):
         self.db = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        password = "root",
-        database = "datarepresentation"
+        #host = "localhost",
+        #user = "root",
+        #password = "root",
+        #database = "datarepresentation"
+        host = cfg.mysql['host'],
+        user = cfg.mysql['user'],
+        password = cfg.mysql['password'],
+        database = cfg.mysql['database']
         )
 
     def create(self, values):

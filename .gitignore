@@ -1,6 +1,10 @@
 # Ignore virtual environment dir
 venv/
 
+# Ignore database configuration file
+*config.py
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
