@@ -57,6 +57,10 @@ parseFloat(food.Price).toFixed(2)
 
 - add host code to ajax calls
 
+**shopper5.html**
+
+- Little bit of layout, link to PA.
+
 ## SERVERS
 
 **server_proj1.py**
@@ -88,4 +92,4 @@ from decimal import Decimal
 
 GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 
-Link: elizabethdaly.eu.pythonanywhere.com/shopper4.html
+[Link](elizabethdaly.eu.pythonanywhere.com/shopper5.html)
