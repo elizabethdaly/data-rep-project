@@ -43,10 +43,17 @@
             color: black;
         }
 
-        /* Create three equal columns that floats next to each other */
         .column {
             float: left;
-            width: 33.33%;
+            padding: 10px;
+        }
+
+        .left, .right {
+            width: 20%;
+        }
+
+        .middle {
+            width: 60%;
         }
 
         /* Clear floats after the columns */
@@ -67,7 +74,7 @@
 
         /* Style the footer */
         .footer {
-            background-color: #f1f1f1;
+            background-color: #ccc;
             padding: 10px;
             text-align: center;
         }
@@ -105,16 +112,15 @@
 <!-- Make two columns, thin on left -->
 <div class="row">
     <!-- Col 1 -->
-    <div class="column">
-        <p textalign="center">Create a new food</p>
-        <!--<h2><span textalign="center">Create a new food</span>-->
+    <div class="column left" style="background-color: #f1f1f1">
+        <h3>Create new food</h3>
         
         <!--<button id="showCreateButton" class="btn btn-default" onclick="showCreate()">Create</button>-->
         <button id="showCreateButton" type="button" class="btn btn-primary btn-lg" onclick="showCreate()">Create</button>
     </div>
     
     <!-- Col2 for form and table -->
-    <div class="column">
+    <div class="column middle">
 
     <!--List all the foods - will load from server/DB later-->
         <div> <!--class="table-responsive"-->
@@ -174,6 +180,11 @@
         </form>
 
     </div> <!-- End of Col 2-->
+
+    <div class="column right" style="background-color:#f1f1f1">
+        <h2>Hosting</h2>
+        <p><b><a href="http://elizabethdaly.eu.pythonanywhere.com/shopper4.html" target="_blank">Pythonanywhere</a></b></p>
+      </div>
 </div> <!-- End of columns -->
         
 
