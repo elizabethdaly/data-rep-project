@@ -84,6 +84,8 @@ from decimal import Decimal
 2. https://stackoverflow.com/questions/1960516/python-json-serialize-a-decimal-object/39257479 (Accessed 4 Dec 2019)
 3. [Bootstrap](https://getbootstrap.com/docs/3.4/)
 
-## Pythonanywhere link
+## Pythonanywhere
 
-http://elizabethdaly.eu.pythonanywhere.com/shopper4.html
+GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
+
+Link: elizabethdaly.eu.pythonanywhere.com/shopper4.html
