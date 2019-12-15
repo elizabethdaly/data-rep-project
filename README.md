@@ -10,7 +10,7 @@ GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 
 - All old files in \oldservers
 
-- [Link to app on pythonanywhere](elizabethdaly.eu.pythonanywhere.com/shopper5.html)
+- Link to app on pythonanywhere: elizabethdaly.eu.pythonanywhere.com/shopper5.html
 
 It even looks ok on my phone.
 
