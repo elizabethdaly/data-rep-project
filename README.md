@@ -22,7 +22,7 @@ This project is hosted on GitHub at https://github.com/elizabethdaly/data-rep-pr
 - DAO: zfood.py
 - DB congig: dbconfig.py
 - DB config to edit on PA: dbconfigtemplate.py
-- VE requirements: requirements.txt
+- Virtual environment requirements: requirements.txt
 - Initial plan: ProposedInterface1.docx
 
 - Images in \images
