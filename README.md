@@ -10,11 +10,13 @@ GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 
 - All old files in \oldservers
 
-[Link to app on pythonanywhere](elizabethdaly.eu.pythonanywhere.com/shopper5.html)
+- [Link to app on pythonanywhere](elizabethdaly.eu.pythonanywhere.com/shopper5.html)
 
 It even looks ok on my phone.
 
 ## Hosting the application on local machine
+
+This project is hosted on GitHub at https://github.com/elizabethdaly/data-rep-project
 - server: server_proj2.py
 - web page: shopper5.html
 - DAO: zfood.py
@@ -27,7 +29,16 @@ It even looks ok on my phone.
 - All early versions in \testing
 
 ### How to clone this repository
-
+A repository on GitHub exists as a remote repository. You can clone this repository to create a local copy on your computer by following these instructions:
+1. On GitHub, navigate to the main page of the repository https://github.com/elizabethdaly/data-rep-project
+2. Under the repository name, click Clone or download.
+3. Choose "Clone with HTTPS".
+4. Open a terminal on your machine. Change the current working directory to the location where you want the cloned directory to be made.
+5. Type git clone, and then paste the URL you copied in 2 above.
+```
+git clone https://github.com/elizabethdaly/data-rep-project
+```
+6. Press enter to clone the repository to your machine.
 
 ### MySQL database & table
 
@@ -82,7 +93,7 @@ parseFloat(food.Price).toFixed(2)
 
 ### Servers
 
-Started with basic one provided and added to it:
+Started with basic one provided and added a little to it:
 
 - Allow for decimal type in DB
 ```python
@@ -101,4 +112,4 @@ from decimal import Decimal
 (Accessed 6 Dec 2019)
 2. [Serialize a decimal object in json](https://stackoverflow.com/questions/1960516/python-json-serialize-a-decimal-object/39257479) (Accessed 4 Dec 2019)
 3. [Bootstrap](https://getbootstrap.com/docs/3.4/) (last accessed 15 Dec 2019)
-4. [Help with html example](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_three_columns_unequal) (last accessed 15 Dec 2019)
+4. [W3schools columns](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_three_columns_unequal) (last accessed 15 Dec 2019) for example.
