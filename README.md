@@ -92,4 +92,6 @@ from decimal import Decimal
 
 GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 
-[Link](elizabethdaly.eu.pythonanywhere.com/shopper5.html)
+[Python anywhere Link](elizabethdaly.eu.pythonanywhere.com/shopper5.html)
+elizabethdaly.eu.pythonanywhere.com/shopper5.html
+It even looks ok on my phone.
