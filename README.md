@@ -1,11 +1,11 @@
-## Hosting the application on eu.pythonanywhere.com
+## Hosting the application on eu.pythonanywhere.com (PA)
 
 GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 - server: application.py
 - web page: shopper5.html
 - DAO: zfood.py
 - DB config to edit on PA: dbconfigtemplate.py
-- VE requirements: requirements.txt
+- Virtual environment requirements: requirements.txt
 - Very basic index: index.html
 
 - All old files in \oldservers
@@ -14,7 +14,7 @@ GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 
 It even looks ok on my phone.
 
-## Hosting the application on local machine
+## Hosting the application on my local machine
 
 This project is hosted on GitHub at https://github.com/elizabethdaly/data-rep-project
 - server: server_proj2.py
