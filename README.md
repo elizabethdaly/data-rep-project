@@ -1,4 +1,4 @@
-## Hosting the application on eu.pythonanywhere.com (PA)
+## 1. Hosting the application on eu.pythonanywhere.com (PA)
 
 GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 - server: application.py
@@ -14,7 +14,7 @@ GiHub repository (public): https://github.com/elizabethdaly/deploytoPA
 
 It even looks ok on my phone.
 
-## Hosting the application on my local machine
+## 2. Hosting the application on my local machine
 
 This project is hosted on GitHub at https://github.com/elizabethdaly/data-rep-project
 - server: server_proj2.py
